@@ -54,8 +54,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_091719) do
     t.date "dob"
   end
 
+<<<<<<< HEAD
   add_foreign_key "jointable_student_courses", "courses"
   add_foreign_key "jointable_student_courses", "students"
   add_foreign_key "project_students", "projects"
   add_foreign_key "project_students", "students"
+=======
+>>>>>>> add_student_controller_and_model
 end
