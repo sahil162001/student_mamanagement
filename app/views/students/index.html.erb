@@ -1,3 +1,6 @@
+<h1> <%=notice%></h1>
+
+
 <h1> List Of Students </h1>
 <h4> Add New Student <%= link_to "Add", new_student_path%></h4>
 
@@ -20,7 +23,12 @@
         <td><%= student.email %></td>
         <td><%= student.address %></td>
         <td><%= student.dob %></td>
-        <td> <%= link_to "View", student%></th>
+        <th> <%= link_to "View", student%></th>
+        <th> <%= link_to "Edit", edit_student_path(student) %></td>
+        <th> <%= link_to "Destroy", student_path(student), data: {
+                                    turbo_method: :delete,
+                                    turbo_confirm: "Are you sure?"
+        } %></th>
       </tr>
     <%end%>
   </tbody>
