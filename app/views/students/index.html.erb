@@ -1,0 +1,36 @@
+<h1> <%=notice%></h1>
+
+
+<h1> List Of Students </h1>
+<h4> Add New Student <%= link_to "Add", new_student_path%></h4>
+
+<table>
+  <thead>
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Email </th>
+        <th> Address </th>
+        <th>Date Of Birth </th>
+        <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.address %></td>
+        <td><%= student.dob %></td>
+        <th> <%= link_to "View", student%></th>
+        <th> <%= link_to "Edit", edit_student_path(student) %></td>
+        <th> <%= link_to "Destroy", student_path(student), data: {
+                                    turbo_method: :delete,
+                                    turbo_confirm: "Are you sure?"
+        } %></th>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+    
