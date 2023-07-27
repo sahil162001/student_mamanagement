@@ -1,0 +1,2 @@
+class Sahil < ApplicationRecord
+end
