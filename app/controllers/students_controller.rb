@@ -9,10 +9,13 @@ class StudentsController < ApplicationController
     @student = Student.new
     end 
 
-    def create 
+    def create
       @student = Student.new(params_data)
       if @student.save 
-        redirect_to root_path , notice: "student has been created"
+        AccountCreationJob.set(wait: 1.minutes).perform_later(@student)
+        redirect_to students_path , notice: "student has been created"
+      else 
+        render "new"
       end
     end
     
